@@ -10,13 +10,13 @@ const App = () => {
 
   // Set states
   const [recipes, setRecipes] = useState([]);
-  const [search, setSearch] = useStates("");
-  const [query, setQuery] = useState("chicken");
+  const [search, setSearch] = useState("");
+  const [query, setQuery] = useState("");
 
   // API requests
-  useEffect(async () => {
+  useEffect(() => {
     getRecipes();
-  }, []);
+  }, [query]);
 
   const getRecipes = async () => {
     const response = await fetch(
@@ -37,7 +37,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <form className="search-form">
+      <form onSubmit={getSearch} className="search-form">
         <input
           className="search-bar"
           type="text"
@@ -50,7 +50,6 @@ const App = () => {
       </form>
       {recipes.map(recipe => (
         <Recipe
-          key={recipe.recipe.label}
           title={recipe.recipe.label}
           calories={recipe.recipe.calories}
           image={recipe.recipe.image}
