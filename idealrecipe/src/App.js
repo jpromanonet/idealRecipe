@@ -7,16 +7,18 @@ const App = () => {
   const APP_ID = "d3fe2ead";
   const APP_KEY = "62f4a658cef756d9b125eec16d55db17";
 
-  // API Search
-  const exampleReq = `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`;
+  // API requests
+  useEffect(async () => {
+    getRecipes();
+  }, []);
 
-  // States control
-  const [counter, setCounter] = useState(0);
-
-  // useEffect function
-  useEffect(() => {
-    console.log("Effect has been run");
-  });
+  const getRecipes = async () => {
+    const response = await fetch(
+      `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`
+    );
+    const data = await response.json();
+    console.log(data);
+  };
 
   return (
     <div className="App">
@@ -26,7 +28,6 @@ const App = () => {
           Search
         </button>
       </form>
-      <h1 onClick={() => setCounter(counter + 1)}>{counter}</h1>
     </div>
   );
 };
