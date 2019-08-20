@@ -10,7 +10,7 @@ const Recipe = ({ title, calories, image, ingredients }) => {
           <li>{ingredient.text}</li>
         ))}
       </ol>
-      <p>Math.floor({calories})</p>
+      <p>{calories}</p>
       <img src={image} alt="" />
     </div>
   );
