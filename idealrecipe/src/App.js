@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Recipe from "./Recipe";
-import logo from "./logo.svg";
 import "./App.css";
 
 const App = () => {
@@ -39,6 +38,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <span className="titleApp">Recipes Finder!</span>
       <form onSubmit={getSearch} className="search-form">
         <input
           className="search-bar"
