@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 
 const Recipe = ({ title, calories, image, ingredients }) => {
+  let caloriesFinal = Math.floor(calories);
   return (
     <div className="recipeContainer">
       <h1>{title}</h1>
@@ -10,7 +11,10 @@ const Recipe = ({ title, calories, image, ingredients }) => {
           <li>{ingredient.text}</li>
         ))}
       </ol>
-      <p>{calories}</p>
+      <p>
+        <b>Calories: </b>
+        {caloriesFinal}
+      </p>
       <img className="imgFood" src={image} alt="" />
     </div>
   );
